@@ -10,8 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import static com.codeborne.selenide.Condition.enabled;
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static pages.Meeting_Creation_Details_Modal.end_date;
 import static pages.Meeting_Creation_Details_Modal.start_date;
@@ -27,9 +26,9 @@ public class Meeting_Creation_Rewiev_Modal {
     @FindBy(xpath = "//button[(text() = 'Create Engagement')]")
     public WebElement create_engagement_bttn;
 
-    SimpleDateFormat date_format = new SimpleDateFormat(Login_Page.config.getProperty("date_format_2"), Locale.ENGLISH);
-    String start_date_formatted_1 = date_format.format(start_date.toDate());
-    String end_date_formatted_1 = date_format.format(end_date.toDate());
+    SimpleDateFormat date_format = new SimpleDateFormat(Login_Page.config.getProperty("date_format_2"), Locale.US);
+    String start_date_formatted_1 = date_format.format(start_date);
+    String end_date_formatted_1 = date_format.format(end_date);
 
     static int a = (int) (Math.random() * 1000000000);
 

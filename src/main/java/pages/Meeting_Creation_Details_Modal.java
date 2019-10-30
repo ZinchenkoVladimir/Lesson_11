@@ -29,11 +29,11 @@ public class Meeting_Creation_Details_Modal {
 
     static Date current_date = new Date();
     static DateTime dt_org = new DateTime(current_date);
-    public static DateTime start_date = dt_org.plusDays(Integer.parseInt(Login_Page.config.getProperty("start_date")));
-    public static DateTime end_date = dt_org.plusDays(Integer.parseInt(Login_Page.config.getProperty("end_date")));
+    public static Date start_date = dt_org.plusDays(Integer.parseInt(Login_Page.config.getProperty("start_date"))).toDate();
+    public static Date end_date = dt_org.plusDays(Integer.parseInt(Login_Page.config.getProperty("end_date"))).toDate();
     SimpleDateFormat date_format = new SimpleDateFormat(Login_Page.config.getProperty("date_format_1"), Locale.ENGLISH);
-    String start_date_formatted = date_format.format(start_date.toDate());
-    String end_date_formatted = date_format.format(end_date.toDate());
+    String start_date_formatted = date_format.format(start_date);
+    String end_date_formatted = date_format.format(end_date);
 
     static int a = (int) (Math.random() * 1000000000);
 
