@@ -1,15 +1,12 @@
 package pages;
 
 import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormat;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Locale;
 
@@ -17,9 +14,10 @@ import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Selenide.$;
 import static java.time.LocalDate.now;
 
-public class Meeting_Creation_New_Engagement_Setup_Modal {
+public class Meeting_Creation_Details_Modal {
 
-    public String meeting_name = "Test ";
+    private static String meeting_name_starts = Login_Page.config.getProperty("name_starts");
+    public static String meeting_name;
     @FindBy(xpath = "//input[@name = 'Name']")
     public WebElement meeting_name_field;
     @FindBy(xpath = "//input[@name = 'OCE__StartDateTime__c' and @class = 'slds-input']")
@@ -29,25 +27,27 @@ public class Meeting_Creation_New_Engagement_Setup_Modal {
 //    @FindBy(xpath = "//span[(text() = 'Speaker Meeting' or . = 'Speaker Meeting')]")
 //    public WebElement meeting_type_text;
 
-    Date current_date = new Date();
-    DateTime dt_org = new DateTime(current_date);
-    DateTime start_date = dt_org.plusDays(Integer.parseInt(Login_Page.config.getProperty("start_date")));
-    DateTime end_date = dt_org.plusDays(Integer.parseInt(Login_Page.config.getProperty("end_date")));
-    SimpleDateFormat date_format = new SimpleDateFormat(Login_Page.config.getProperty("date_format"), Locale.ENGLISH);
+    static Date current_date = new Date();
+    static DateTime dt_org = new DateTime(current_date);
+    public static DateTime start_date = dt_org.plusDays(Integer.parseInt(Login_Page.config.getProperty("start_date")));
+    public static DateTime end_date = dt_org.plusDays(Integer.parseInt(Login_Page.config.getProperty("end_date")));
+    SimpleDateFormat date_format = new SimpleDateFormat(Login_Page.config.getProperty("date_format_1"), Locale.ENGLISH);
     String start_date_formatted = date_format.format(start_date.toDate());
     String end_date_formatted = date_format.format(end_date.toDate());
 
-    public Meeting_Creation_New_Engagement_Setup_Modal(WebDriver driver) throws Exception {
+    static int a = (int) (Math.random() * 1000000000);
+
+    public Meeting_Creation_Details_Modal(WebDriver driver) throws Exception {
         PageFactory.initElements(driver, this);
     }
 
-    public Meeting_Creation_New_Engagement_Setup_Modal meeting_name_field_fill() throws Exception {
-        int a = (int) (Math.random() * 1000000000);
-        $(meeting_name_field).waitUntil(enabled,10000).setValue(meeting_name + Meeting_Creation_Select_Record_Type_Modal.speaker_meeting_text + " " + a);
+    public Meeting_Creation_Details_Modal meeting_name_field_fill() throws Exception {
+        meeting_name = (meeting_name_starts + Meeting_Creation_Select_Record_Type_Modal.speaker_meeting_text + " " + a);
+        $(meeting_name_field).waitUntil(enabled,10000).setValue(meeting_name);
         return this;
     }
 
-    public Meeting_Creation_New_Engagement_Setup_Modal start_date_field_fill() throws Exception {
+    public Meeting_Creation_Details_Modal start_date_field_fill() throws Exception {
         $(start_date_field).waitUntil(enabled,10000).setValue(start_date_formatted);
         return this;
     }

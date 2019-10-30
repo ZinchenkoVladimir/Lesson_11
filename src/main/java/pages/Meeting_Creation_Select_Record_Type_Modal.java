@@ -21,7 +21,7 @@ public class Meeting_Creation_Select_Record_Type_Modal {
     }
 
     public Meeting_Creation_Select_Record_Type_Modal speaker_meeting_selection() throws Exception {
-        speaker_meeting_text = $(Meeting_Creation_Select_Record_Type_Modal.speaker_meeting_radio).getText();
+        speaker_meeting_text = $(speaker_meeting_radio).getText();
         $(speaker_meeting_radio).waitUntil(enabled,10000).click();
         return this;
     }

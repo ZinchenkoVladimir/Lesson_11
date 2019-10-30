@@ -1,15 +1,8 @@
 import com.codeborne.selenide.WebDriverRunner;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.TestMethodOrder;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
 import pages.*;
 
@@ -17,17 +10,17 @@ import java.util.concurrent.TimeUnit;
 
 import static com.codeborne.selenide.Selenide.clearBrowserCookies;
 import static com.codeborne.selenide.Selenide.clearBrowserLocalStorage;
-import static pages.Login_Page.password_field;
-import static pages.Login_Page.username_field;
 
 public class Test_Speaker_Meetings {
 
     private static WebDriver driver;
+
     private Login_Page login_page;
     private Home_Page home_page;
     private Meetings_Page meetings_page;
     private Meeting_Creation_Select_Record_Type_Modal meeting_creation_select_record_type_modal;
-    private Meeting_Creation_New_Engagement_Setup_Modal meeting_creation_new_engagement_setup_modal;
+    private Meeting_Creation_Details_Modal meeting_creation_details_modal;
+    private Meeting_Creation_Rewiev_Modal meeting_creation_rewiev_modal;
 
     public Test_Speaker_Meetings(){
     }
@@ -58,7 +51,8 @@ public class Test_Speaker_Meetings {
         home_page = new Home_Page(driver);
         meetings_page = new Meetings_Page(driver);
         meeting_creation_select_record_type_modal = new Meeting_Creation_Select_Record_Type_Modal(driver);
-        meeting_creation_new_engagement_setup_modal = new Meeting_Creation_New_Engagement_Setup_Modal(driver);
+        meeting_creation_details_modal = new Meeting_Creation_Details_Modal(driver);
+        meeting_creation_rewiev_modal = new Meeting_Creation_Rewiev_Modal(driver);
     }
 
 //    @DataProvider
@@ -140,13 +134,20 @@ public class Test_Speaker_Meetings {
                 .next_bttn_click()
                 .next_bttn_click();
 
-        meeting_creation_new_engagement_setup_modal
+        meeting_creation_details_modal
                 .meeting_name_field_fill()
                 .start_date_field_fill()
                 .end_date_field_fill();
 
         meeting_creation_select_record_type_modal
+                .next_bttn_click()
                 .next_bttn_click();
+
+        meeting_creation_rewiev_modal
+                .verify_meeting_type()
+                .verify_start_date()
+                .verify_end_date()
+                .create_engagement_bttn_click();
     }
 
     @AfterTest
