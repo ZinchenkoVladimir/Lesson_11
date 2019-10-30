@@ -31,9 +31,9 @@ public class Meeting_Creation_New_Engagement_Setup_Modal {
 
     Date current_date = new Date();
     DateTime dt_org = new DateTime(current_date);
-    DateTime start_date = dt_org.plusDays(1);
-    DateTime end_date = dt_org.plusDays(3);
-    SimpleDateFormat date_format = new SimpleDateFormat("MMM d, YYYY", Locale.ENGLISH);
+    DateTime start_date = dt_org.plusDays(Integer.parseInt(Login_Page.config.getProperty("start_date")));
+    DateTime end_date = dt_org.plusDays(Integer.parseInt(Login_Page.config.getProperty("end_date")));
+    SimpleDateFormat date_format = new SimpleDateFormat(Login_Page.config.getProperty("date_format"), Locale.ENGLISH);
     String start_date_formatted = date_format.format(start_date.toDate());
     String end_date_formatted = date_format.format(end_date.toDate());
 

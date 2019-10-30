@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class Login_Page {
 
-    private final Properties config = Config.loadProperties("src/main/resources/test.properties");
+    public static final Properties config = Config.loadProperties("src/main/resources/test.properties");
 
     private String salesforce_login_page = config.getProperty("salesforce_login_page");
     private String username = config.getProperty("username");
