@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/VolodymyrZinchenko/Desktop/Lesson_11">
+        <packages>
+            <package name="default_package"/>
+        </packages>
+        <classes>
+            <class name="Test_Speaker_Meetings">
+                <methods>
+<!--                    <include name="login_to_salesforce"/>-->
+<!--                    <include name="redirect_to_meetings"/>-->
+                    <exclude name="Test_Speaker_Meetings.open_meeting_modal"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <suite-files>
+        <suite-file path="testng.xml"/>
+    </suite-files>
+</suite>
