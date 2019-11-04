@@ -26,9 +26,9 @@ public class Meeting_Creation_Rewiev_Modal {
     @FindBy(xpath = "(.//*[(.)='Location Type'])[1]/preceding::div[1]")
     public WebElement meeting_name_text;
 
-    SimpleDateFormat date_format = new SimpleDateFormat(Login_Page.config.getProperty("date_format_2"), Locale.US);
-    String start_date_formatted_1 = date_format.format(start_date);
-    String end_date_formatted_1 = date_format.format(end_date);
+    static SimpleDateFormat date_format = new SimpleDateFormat(Login_Page.config.getProperty("date_format_2"), Locale.US);
+    public static String start_date_formatted_1 = date_format.format(start_date);
+    public static String end_date_formatted_1 = date_format.format(end_date);
 
     public Meeting_Creation_Rewiev_Modal(WebDriver driver) throws Exception {
         PageFactory.initElements(driver, this);

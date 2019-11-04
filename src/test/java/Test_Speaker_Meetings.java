@@ -29,6 +29,7 @@ public class Test_Speaker_Meetings {
     private Meeting_Creation_Organization_Info_Modal meeting_creation_organization_info_modal;
     private Meeting_Creation_Details_Modal meeting_creation_details_modal;
     private Meeting_Creation_Rewiev_Modal meeting_creation_rewiev_modal;
+    private Created_Speaker_Meeting_Page created_speaker_meeting_page;
 
     public Test_Speaker_Meetings(){
     }
@@ -59,6 +60,7 @@ public class Test_Speaker_Meetings {
         meeting_creation_organization_info_modal = new Meeting_Creation_Organization_Info_Modal(driver);
         meeting_creation_details_modal = new Meeting_Creation_Details_Modal(driver);
         meeting_creation_rewiev_modal = new Meeting_Creation_Rewiev_Modal(driver);
+        created_speaker_meeting_page = new Created_Speaker_Meeting_Page(driver);
     }
 
 //    @DataProvider
@@ -164,6 +166,10 @@ public class Test_Speaker_Meetings {
         asserts.assertAll();
         meeting_creation_rewiev_modal
                 .create_engagement_bttn_click();
+
+        created_speaker_meeting_page
+                .details_in_sidebar_click()
+                .verify_created_speaker_meeting();
     }
 
     @AfterTest
