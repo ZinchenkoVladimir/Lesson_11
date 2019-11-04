@@ -53,6 +53,6 @@ public class Meeting_Creation_Details_Modal {
     }
 
     public void end_date_field_fill() throws Exception {
-        $(end_date_field).waitUntil(enabled,10000).setValue(end_date_formatted);
+        $(end_date_field).waitUntil(enabled,10000).setValue(end_date_formatted).pressEnter();
     }
 }

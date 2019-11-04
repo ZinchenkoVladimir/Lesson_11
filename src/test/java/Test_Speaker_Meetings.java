@@ -143,6 +143,9 @@ public class Test_Speaker_Meetings {
                 .organizing_business_unit_click()
                 .business_unit_item_selection();
 
+        meeting_creation_select_record_type_modal
+                .next_bttn_click();
+
         meeting_creation_details_modal
                 .meeting_name_field_fill()
                 .start_date_field_fill()
@@ -158,7 +161,7 @@ public class Test_Speaker_Meetings {
         SoftAssert asserts = new SoftAssert();
         asserts.assertTrue(meeting_creation_rewiev_modal.verify_start_date(), "1");
         asserts.assertTrue(meeting_creation_rewiev_modal.verify_end_date(), "2");
-//        asserts.assertAll();
+        asserts.assertAll();
         meeting_creation_rewiev_modal
                 .create_engagement_bttn_click();
     }

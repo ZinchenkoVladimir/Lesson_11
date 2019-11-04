@@ -32,6 +32,5 @@ public class Meeting_Creation_Organization_Info_Modal {
 
     public void business_unit_item_selection() throws Exception {
         $(business_unit_item).waitUntil(visible,10000).click();
-        sleep(5000);
     }
 }

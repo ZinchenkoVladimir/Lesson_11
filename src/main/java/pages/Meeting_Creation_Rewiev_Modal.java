@@ -17,7 +17,7 @@ public class Meeting_Creation_Rewiev_Modal {
 
     @FindBy(xpath = "//div[@class = 'slds-form-element__static slds-text-body_smalls' and (text() = 'Speaker Meeting' or . = 'Speaker Meeting')]")
     public WebElement rewiev_meeting_type_text;
-    @FindBy(xpath = "(.//*[(.)='Start Date/Time'])[1]/following::div[2]")
+    @FindBy(xpath = "(.//*[(.)='Start Date/Time'])[2]/following::div[2]")
     public WebElement start_date_text;
     @FindBy(xpath = "(.//*[(.)='Time Zone'])[1]/preceding::div[1]")
     public WebElement end_date_text;
@@ -44,16 +44,14 @@ public class Meeting_Creation_Rewiev_Modal {
     }
 
     public boolean verify_start_date() throws Exception {
-        boolean b = $(start_date_text).waitUntil(enabled,15000).waitUntil(visible,15000).getText().contains(start_date_formatted_1);
-        return b;
+        return $(start_date_text).waitUntil(visible,15000).getText().contains(start_date_formatted_1);
     }
 
     public boolean verify_end_date() throws Exception {
-        boolean c = $(end_date_text).waitUntil(visible,10000).getText().contains(end_date_formatted_1);
-        return c;
+        return $(end_date_text).waitUntil(visible,10000).getText().contains(end_date_formatted_1);
     }
 
     public void create_engagement_bttn_click() throws Exception {
-        $(create_engagement_bttn).waitUntil(enabled,10000).click();
+        $(create_engagement_bttn).waitUntil(enabled,10000).scrollIntoView(true).click();
     }
 }
