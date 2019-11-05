@@ -17,7 +17,7 @@ public class Home_Page {
 
     @FindBy(xpath = "//button[(text() = 'App Launcher' or . = 'App Launcher')]")
     public WebElement app_launcher_bttn;
-    @FindBy(xpath = "(.//*[normalize-space(text())='Metadata Entities'])[2]/preceding::span[1]")
+    @FindBy(xpath = "(.//*[normalize-space(text())='Metadata Entities'])[1]/preceding::span[1]")
     public WebElement meetings_link;
 
     public Home_Page(WebDriver driver) throws Exception {

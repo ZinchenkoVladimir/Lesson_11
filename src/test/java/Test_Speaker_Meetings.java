@@ -1,26 +1,18 @@
-import com.codeborne.selenide.WebDriverLogs;
 import com.codeborne.selenide.WebDriverRunner;
-import com.codeborne.selenide.testng.SoftAsserts;
-import com.codeborne.selenide.webdriver.WebDriverFactory;
-import io.github.bonigarcia.wdm.ChromeDriverManager;
+import default_package.Base;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.opera.OperaDriver;
-import org.testng.annotations.*;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.*;
-import utils.Config;
 
 import java.util.concurrent.TimeUnit;
 
-import static com.codeborne.selenide.Selenide.clearBrowserCookies;
-import static com.codeborne.selenide.Selenide.clearBrowserLocalStorage;
+import static default_package.Base.*;
 
-public class Test_Speaker_Meetings {
-
-    private static WebDriver driver;
+public class Test_Speaker_Meetings extends Base {
 
     private Login_Page login_page;
     private Home_Page home_page;
@@ -36,22 +28,22 @@ public class Test_Speaker_Meetings {
     }
 
     @BeforeTest
-    public void setUp() throws Exception {
+    public void setUp_pages() throws Exception {
 
 //        ChromeDriverManager.chromedriver().setup();
-        WebDriverManager.chromedriver().setup();
-        WebDriverManager.firefoxdriver().setup();
+//        WebDriverManager.chromedriver().setup();
+//        WebDriverManager.firefoxdriver().setup();
 //        WebDriverManager.operadriver().setup();
 //        WebDriverManager.edgedriver().setup();
 //        WebDriverManager.iedriver().setup();
-
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        WebDriverRunner.setWebDriver(driver);
-        WebDriverRunner.supportsJavascript();
-        WebDriverRunner.supportsModalDialogs();
+//
+//        driver = new ChromeDriver();
+//        driver.manage().window().maximize();
+//        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+//        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+//        WebDriverRunner.setWebDriver(driver);
+//        WebDriverRunner.supportsJavascript();
+//        WebDriverRunner.supportsModalDialogs();
 //        WebDriverRunner.driver().config().headless();
 
         login_page = new Login_Page(driver);
@@ -83,7 +75,7 @@ public class Test_Speaker_Meetings {
 //                .verify_home_page();
 //    }
 //
-//    @Test(priority = 0)
+//    @Test(priority = 1)
 //    public void redirect_to_meetings() throws Exception{
 //
 //        login_page
@@ -99,7 +91,7 @@ public class Test_Speaker_Meetings {
 //                .verify_meetings_page();
 //    }
 //
-//    @Test(priority = 1)
+//    @Test(priority = 2)
 //    public void open_meeting_modal() throws Exception{
 //
 //        login_page
@@ -118,8 +110,8 @@ public class Test_Speaker_Meetings {
 //                .new_bttn_click()
 //                .verify_meeting_modal();
 //    }
-//
-    @Test(priority = 2)
+
+    @Test(priority = 3)
     public void meeting_creation() throws Exception{
 
         login_page
@@ -175,10 +167,10 @@ public class Test_Speaker_Meetings {
         asserts.assertAll();
     }
 
-    @AfterTest
-    public void tearDown() throws Exception {
-        clearBrowserCookies();
-        clearBrowserLocalStorage();
-        driver.quit();
-    }
+//    @AfterTest
+//    public void tearDown() throws Exception {
+//        clearBrowserCookies();
+//        clearBrowserLocalStorage();
+//        driver.quit();
+//    }
 }

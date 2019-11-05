@@ -10,9 +10,9 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class Meeting_Creation_Organization_Info_Modal {
 
-    @FindBy(xpath = "(.//*[normalize-space(.)='Organizing Business Unit'])[1]/following::input[1]")
+    @FindBy(xpath = "(.//*[(.)='Organizing Country'])[1]/preceding::input[1]")
     public WebElement organizing_business_unit_field;
-    @FindBy(xpath = "(.//*[(.)='Recent Parties'])[1]/following::span[5]")
+    @FindBy(xpath = "//lightning-base-combobox-item[(text() = 'engoce_Party__cTesting' or . = 'engoce_Party__cTesting')]")
     public WebElement business_unit_item;
 
     public Meeting_Creation_Organization_Info_Modal(WebDriver driver) throws Exception {
@@ -26,5 +26,6 @@ public class Meeting_Creation_Organization_Info_Modal {
 
     public void business_unit_item_selection() throws Exception {
         $(business_unit_item).waitUntil(visible,10000).click();
+        sleep(3000);
     }
 }

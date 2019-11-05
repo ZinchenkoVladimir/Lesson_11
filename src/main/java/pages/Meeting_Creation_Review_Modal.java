@@ -44,11 +44,11 @@ public class Meeting_Creation_Review_Modal {
     }
 
     public boolean verify_start_date() throws Exception {
-        return $(start_date_text).waitUntil(visible,15000).getText().contains(start_date_formatted_1);
+        return $(start_date_text).waitUntil(enabled,15000).getText().contains(start_date_formatted_1);
     }
 
     public boolean verify_end_date() throws Exception {
-        return $(end_date_text).waitUntil(visible,10000).getText().contains(end_date_formatted_1);
+        return $(end_date_text).waitUntil(enabled,10000).getText().contains(end_date_formatted_1);
     }
 
     public void create_engagement_bttn_click() throws Exception {
