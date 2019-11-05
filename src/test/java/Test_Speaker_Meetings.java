@@ -28,8 +28,9 @@ public class Test_Speaker_Meetings {
     private Meeting_Creation_Select_Record_Type_Modal meeting_creation_select_record_type_modal;
     private Meeting_Creation_Organization_Info_Modal meeting_creation_organization_info_modal;
     private Meeting_Creation_Details_Modal meeting_creation_details_modal;
-    private Meeting_Creation_Rewiev_Modal meeting_creation_rewiev_modal;
+    private Meeting_Creation_Review_Modal meeting_creation_review_modal;
     private Created_Speaker_Meeting_Page created_speaker_meeting_page;
+    private SoftAssert asserts = new SoftAssert();
 
     public Test_Speaker_Meetings(){
     }
@@ -59,7 +60,7 @@ public class Test_Speaker_Meetings {
         meeting_creation_select_record_type_modal = new Meeting_Creation_Select_Record_Type_Modal(driver);
         meeting_creation_organization_info_modal = new Meeting_Creation_Organization_Info_Modal(driver);
         meeting_creation_details_modal = new Meeting_Creation_Details_Modal(driver);
-        meeting_creation_rewiev_modal = new Meeting_Creation_Rewiev_Modal(driver);
+        meeting_creation_review_modal = new Meeting_Creation_Review_Modal(driver);
         created_speaker_meeting_page = new Created_Speaker_Meeting_Page(driver);
     }
 
@@ -157,19 +158,21 @@ public class Test_Speaker_Meetings {
                 .next_bttn_click()
                 .next_bttn_click();
 
-        meeting_creation_rewiev_modal
+        meeting_creation_review_modal
                 .verify_meeting_type()
                 .verify_meeting_name();
-        SoftAssert asserts = new SoftAssert();
-        asserts.assertTrue(meeting_creation_rewiev_modal.verify_start_date(), "1");
-        asserts.assertTrue(meeting_creation_rewiev_modal.verify_end_date(), "2");
+        asserts.assertTrue(meeting_creation_review_modal.verify_start_date());
+        asserts.assertTrue(meeting_creation_review_modal.verify_end_date());
         asserts.assertAll();
-        meeting_creation_rewiev_modal
+        meeting_creation_review_modal
                 .create_engagement_bttn_click();
 
         created_speaker_meeting_page
                 .details_in_sidebar_click()
                 .verify_created_speaker_meeting();
+        asserts.assertTrue(created_speaker_meeting_page.verify_start_date_in_created_meeting());
+        asserts.assertTrue(created_speaker_meeting_page.verify_end_date_in_created_meeting());
+        asserts.assertAll();
     }
 
     @AfterTest

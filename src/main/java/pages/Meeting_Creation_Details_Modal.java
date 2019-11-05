@@ -12,7 +12,6 @@ import java.util.Locale;
 
 import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Selenide.$;
-import static java.time.LocalDate.now;
 
 public class Meeting_Creation_Details_Modal {
 
@@ -24,8 +23,6 @@ public class Meeting_Creation_Details_Modal {
     public WebElement start_date_field;
     @FindBy(xpath = "//input[@name = 'OCE__EndDateTime__c' and @class = 'slds-input']")
     public WebElement end_date_field;
-//    @FindBy(xpath = "//span[(text() = 'Speaker Meeting' or . = 'Speaker Meeting')]")
-//    public WebElement meeting_type_text;
 
     static Date current_date = new Date();
     static DateTime dt_org = new DateTime(current_date);

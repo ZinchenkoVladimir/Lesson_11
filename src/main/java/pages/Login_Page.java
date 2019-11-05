@@ -18,7 +18,6 @@ public class Login_Page {
     private String salesforce_login_page = config.getProperty("salesforce_login_page");
     private String username = config.getProperty("username");
     private String pass = config.getProperty("pass");
-//    private String oce_engage = "Home";
 
     @FindBy(id = "username")
     public static WebElement username_field;
