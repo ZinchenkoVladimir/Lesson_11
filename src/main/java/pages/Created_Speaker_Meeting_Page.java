@@ -10,12 +10,13 @@ import java.util.Locale;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.refresh;
 import static pages.Meeting_Creation_Details_Modal.*;
 import static pages.Meeting_Creation_Select_Record_Type_Modal.speaker_meeting_text;
 
 public class Created_Speaker_Meeting_Page {
 
-    String created_meeting_status = "Draft";
+    private String created_meeting_status = "Draft";
     @FindBy(xpath = "//a[contains(text(),'Details')]")
     public static WebElement details_in_sidebar;
     @FindBy(xpath = "(.//*[(.)='View process'])[1]/preceding::h1[1]")
@@ -28,9 +29,9 @@ public class Created_Speaker_Meeting_Page {
     public WebElement span_meeting_name_text;
     @FindBy(xpath = "(.//*[normalize-space(.)='Add Member'])[1]/preceding::div[1]")
     public WebElement span2_meeting_name_text;
-    @FindBy(xpath = "(.//*[(.)='End Date/Time'])[4]/preceding::span[3]")
+    @FindBy(xpath = "(.//*[(.)='End Date/Time'])[2]/preceding::span[3]")
     public WebElement span_start_date_text;
-    @FindBy(xpath = "(.//*[(.)='Status'])[2]/preceding::span[3]")
+    @FindBy(xpath = "(.//*[(.)='Status'])[1]/preceding::span[3]")
     public WebElement span_end_date_text;
     @FindBy(xpath = "(.//*[(.)='F&B Served by'])[1]/preceding::span[3]")
     public WebElement status_text;
@@ -48,13 +49,15 @@ public class Created_Speaker_Meeting_Page {
         return this;
     }
 
-    public void verify_created_speaker_meeting() throws Exception {
+    public Created_Speaker_Meeting_Page verify_created_speaker_meeting() throws Exception {
         $(h1_created_meeting_name_text).waitUntil(visible,10000).shouldHave(text(meeting_name));
         $(h3_record_type_text).waitUntil(visible,10000).shouldHave(text(speaker_meeting_text));
         $(record_type_text).waitUntil(visible,10000).shouldHave(text(speaker_meeting_text));
         $(span_meeting_name_text).waitUntil(visible,10000).shouldHave(text(meeting_name));
         $(span2_meeting_name_text).waitUntil(visible,10000).shouldHave(text(meeting_name));
         $(status_text).waitUntil(visible,10000).shouldHave(text(created_meeting_status));
+        refresh();
+        return this;
     }
 
     public boolean verify_start_date_in_created_meeting() throws Exception {

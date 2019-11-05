@@ -1,16 +1,8 @@
-import com.codeborne.selenide.WebDriverRunner;
 import default_package.Base;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.*;
-
-import java.util.concurrent.TimeUnit;
-
-import static default_package.Base.*;
 
 public class Test_Speaker_Meetings extends Base {
 
@@ -30,22 +22,6 @@ public class Test_Speaker_Meetings extends Base {
     @BeforeTest
     public void setUp_pages() throws Exception {
 
-//        ChromeDriverManager.chromedriver().setup();
-//        WebDriverManager.chromedriver().setup();
-//        WebDriverManager.firefoxdriver().setup();
-//        WebDriverManager.operadriver().setup();
-//        WebDriverManager.edgedriver().setup();
-//        WebDriverManager.iedriver().setup();
-//
-//        driver = new ChromeDriver();
-//        driver.manage().window().maximize();
-//        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-//        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-//        WebDriverRunner.setWebDriver(driver);
-//        WebDriverRunner.supportsJavascript();
-//        WebDriverRunner.supportsModalDialogs();
-//        WebDriverRunner.driver().config().headless();
-
         login_page = new Login_Page(driver);
         home_page = new Home_Page(driver);
         meetings_page = new Meetings_Page(driver);
@@ -55,14 +31,6 @@ public class Test_Speaker_Meetings extends Base {
         meeting_creation_review_modal = new Meeting_Creation_Review_Modal(driver);
         created_speaker_meeting_page = new Created_Speaker_Meeting_Page(driver);
     }
-
-//    @DataProvider
-//    public Object[][] fill_login_page() {
-//        return new Object[][]{
-//                {username_field},
-//                {password_field}
-//        };
-//    }
 //
 //    @Test(priority = 0)
 //    public void login_to_salesforce() throws Exception {
@@ -153,24 +121,18 @@ public class Test_Speaker_Meetings extends Base {
         meeting_creation_review_modal
                 .verify_meeting_type()
                 .verify_meeting_name();
-        asserts.assertTrue(meeting_creation_review_modal.verify_start_date());
-        asserts.assertTrue(meeting_creation_review_modal.verify_end_date());
+//        asserts.assertTrue(meeting_creation_review_modal.verify_start_date(), "start_date_1");
+        asserts.assertTrue(meeting_creation_review_modal.verify_end_date(), "end_date_1");
         asserts.assertAll();
         meeting_creation_review_modal
                 .create_engagement_bttn_click();
 
         created_speaker_meeting_page
                 .details_in_sidebar_click()
-                .verify_created_speaker_meeting();
-        asserts.assertTrue(created_speaker_meeting_page.verify_start_date_in_created_meeting());
-        asserts.assertTrue(created_speaker_meeting_page.verify_end_date_in_created_meeting());
+                .verify_created_speaker_meeting()
+                .details_in_sidebar_click();
+        asserts.assertTrue(created_speaker_meeting_page.verify_start_date_in_created_meeting(), "start_date_2");
+        asserts.assertTrue(created_speaker_meeting_page.verify_end_date_in_created_meeting(), "end_date_2");
         asserts.assertAll();
     }
-
-//    @AfterTest
-//    public void tearDown() throws Exception {
-//        clearBrowserCookies();
-//        clearBrowserLocalStorage();
-//        driver.quit();
-//    }
 }

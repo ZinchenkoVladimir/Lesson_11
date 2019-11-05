@@ -17,7 +17,7 @@ public class Meeting_Creation_Review_Modal {
 
     @FindBy(xpath = "//div[@class = 'slds-form-element__static slds-text-body_smalls' and (text() = 'Speaker Meeting' or . = 'Speaker Meeting')]")
     public WebElement rewiev_meeting_type_text;
-    @FindBy(xpath = "(.//*[(.)='Start Date/Time'])[2]/following::div[2]")
+    @FindBy(xpath = "(.//*[(.)='End Date/Time'])[1]/preceding::div[1]")
     public WebElement start_date_text;
     @FindBy(xpath = "(.//*[(.)='Time Zone'])[1]/preceding::div[1]")
     public WebElement end_date_text;
@@ -48,7 +48,7 @@ public class Meeting_Creation_Review_Modal {
     }
 
     public boolean verify_end_date() throws Exception {
-        return $(end_date_text).waitUntil(enabled,10000).getText().contains(end_date_formatted_1);
+        return $(end_date_text).waitUntil(visible,10000).getText().contains(end_date_formatted_1);
     }
 
     public void create_engagement_bttn_click() throws Exception {
