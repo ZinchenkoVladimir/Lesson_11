@@ -18,13 +18,8 @@ public class Meetings_Member_Page {
         PageFactory.initElements(driver, this);
     }
 
-//    public Meetings_Member_Page meeting_members_link_click() throws Exception {
-//        $(meeting_members_link).waitUntil(visible,10000).click();
-//        return this;
-//    }
-
-    public void verify_meetings_page() throws Exception {
-        $(Meetings_Page.meetings_text).waitUntil(enabled,10000).is(visible);
+    public void verify_meeting_members_page() throws Exception {
+        $(meeting_members_text).waitUntil(enabled,10000).isDisplayed();
     }
 
 }
