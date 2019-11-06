@@ -18,6 +18,9 @@ public class Meeting_Member_Creation_Modal {
 
     private static String meeting_member_name_starts = Login_Page.config.getProperty("meeting_member_name_starts");
     public static String meeting_member_name;
+    public static String meeting_member_record_type_text;
+    public static String meeting_list_item_text;
+    public static String invited_item_text;
     @FindBy(xpath = "(.//*[(.)='Record Type'])[1]/following::span[2]")
     public WebElement m_m_record_type_field;
     @FindBy(xpath = "//input[@type = 'text' and @placeholder = 'Search Meetings...' and @title = 'Search Meetings']")
@@ -40,7 +43,8 @@ public class Meeting_Member_Creation_Modal {
     }
 
     public Meeting_Member_Creation_Modal m_m_full_name_field_fill() throws Exception {
-        meeting_member_name = (meeting_member_name_starts + m_m_record_type_field + " " + b);
+        meeting_member_record_type_text = $(m_m_record_type_field).getText();
+        meeting_member_name = (meeting_member_name_starts + meeting_member_record_type_text + " " + b);
         $(full_name_field).waitUntil(enabled,10000).setValue(meeting_member_name);
         return this;
     }
@@ -51,6 +55,7 @@ public class Meeting_Member_Creation_Modal {
     }
 
     public Meeting_Member_Creation_Modal meeting_list_item_selection() throws Exception {
+        meeting_list_item_text = $(meeting_list_item).getText();
         $(meeting_list_item).waitUntil(visible,10000).click();
         return this;
     }
@@ -61,6 +66,7 @@ public class Meeting_Member_Creation_Modal {
     }
 
     public Meeting_Member_Creation_Modal invited_item_selection() throws Exception {
+        invited_item_text = $(invitation_status_invited_item).getText();
         $(invitation_status_invited_item).waitUntil(visible,10000).click();
         return this;
     }
