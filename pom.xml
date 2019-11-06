@@ -33,7 +33,7 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>testng.xml</suiteXmlFile>
 <!--                        <suiteXmlFile>${suiteFile}</suiteXmlFile>-->
-                        <!--<suiteXmlFile>regresionFolder2.xml</suiteXmlFile>-->
+<!--                        <suiteXmlFile>testng.xml</suiteXmlFile>-->
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

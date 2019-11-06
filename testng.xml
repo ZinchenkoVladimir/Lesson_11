@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite" verbose="1" parallel="tests" thread-count="1" group-by-instances="true">
-    <test name="C:/Users/VolodymyrZinchenko/Desktop/Lesson_11">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/VolodymyrZinchenko/Desktop/Lesson_11">
 <!--        <packages>-->
 <!--            <package name="default_package"/>-->
 <!--        </packages>-->
         <classes>
-            <class name="Test_Speaker_Meetings">
+            <class name="Test_Speaker_Meetings"/>
+            <class name="Test_Meeting_Member">
                 <methods>
 <!--                    <include name="login_to_salesforce"/>-->
-<!--                    <include name="redirect_to_meetings"/>-->
-                    <exclude name="Test_Speaker_Meetings.open_meeting_modal"/>
+<!--                    <include name="redirect_to_meetings_member"/>-->
+                    <exclude name="open_meetings_member_modal"/>
+                    <exclude name="speaker_meetings_member_creation"/>
                 </methods>
             </class>
         </classes>
