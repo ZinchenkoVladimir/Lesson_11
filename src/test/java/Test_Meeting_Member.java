@@ -1,7 +1,6 @@
 import default_package.Base;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 import pages.*;
 
 public class Test_Meeting_Member extends Base {
@@ -33,63 +32,63 @@ public class Test_Meeting_Member extends Base {
         created_meeting_member_page = new Created_Meeting_Member_Page(driver);
     }
 
-//    @Test(priority = 0)
-//    public void login_to_salesforce() throws Exception {
-//
-//        login_page
-//                .open_login_page()
-//                .username_field_fill()
-//                .password_field_fill()
-//                .login_bttn_click()
-//                .verify_home_page();
-//    }
-//
-//    @Test(priority = 1)
-//    public void redirect_to_meetings_member() throws Exception{
-//
-//        login_page
-//                .open_login_page()
-//                .username_field_fill()
-//                .password_field_fill()
-//                .login_bttn_click()
-//                .verify_home_page();
-//
-//        home_page
-//                .app_launcher_click();
-//
-//        app_launcher_modal_page
-//                .meeting_members_link_click();
-//
-//        meetings_member_page
-//                .verify_meeting_members_page();
-//    }
-//
-//    @Test(priority = 2)
-//    public void open_meetings_member_modal() throws Exception{
-//
-//        login_page
-//                .open_login_page()
-//                .username_field_fill()
-//                .password_field_fill()
-//                .login_bttn_click()
-//                .verify_home_page();
-//
-//        home_page
-//                .app_launcher_click();
-//
-//        app_launcher_modal_page
-//                .meeting_members_link_click();
-//
-//        meetings_member_page
-//                .verify_meeting_members_page();
-//
-//        meetings_page
-//                .new_bttn_click();
-//
-//        meeting_member_select_record_type_modal_page
-//                .verify_meeting_member_modal();
-//    }
-//
+    @Test(priority = 0)
+    public void login_to_salesforce() throws Exception {
+
+        login_page
+                .open_login_page()
+                .username_field_fill()
+                .password_field_fill()
+                .login_bttn_click()
+                .verify_home_page();
+    }
+
+    @Test(priority = 1)
+    public void redirect_to_meetings_member() throws Exception{
+
+        login_page
+                .open_login_page()
+                .username_field_fill()
+                .password_field_fill()
+                .login_bttn_click()
+                .verify_home_page();
+
+        home_page
+                .app_launcher_click();
+
+        app_launcher_modal_page
+                .meeting_members_link_click();
+
+        meetings_member_page
+                .verify_meeting_members_page();
+    }
+
+    @Test(priority = 2)
+    public void open_meetings_member_modal() throws Exception{
+
+        login_page
+                .open_login_page()
+                .username_field_fill()
+                .password_field_fill()
+                .login_bttn_click()
+                .verify_home_page();
+
+        home_page
+                .app_launcher_click();
+
+        app_launcher_modal_page
+                .meeting_members_link_click();
+
+        meetings_member_page
+                .verify_meeting_members_page();
+
+        meetings_page
+                .new_bttn_click();
+
+        meeting_member_select_record_type_modal_page
+                .verify_meeting_member_modal();
+    }
+
     @Test(priority = 3)
     public void speaker_meetings_member_creation() throws Exception{
 

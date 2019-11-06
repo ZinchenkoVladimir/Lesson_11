@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
 public class Meeting_Creation_Select_Record_Type_Modal {
 
     public static String speaker_meeting_text;
-    @FindBy(xpath = "//span[@class = 'slds-form-element__label' and (text() = 'Speaker Meeting')]")
+    @FindBy(xpath = "//c-apo-text[(text() = 'Speaker Meeting' or . = 'Speaker Meeting')]")
     public static WebElement speaker_meeting_radio;
     @FindBy(xpath = "//button[(text() = 'Next' or . = 'Next')]")
     public WebElement next_button;

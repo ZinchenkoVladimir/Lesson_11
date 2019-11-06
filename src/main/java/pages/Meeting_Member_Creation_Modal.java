@@ -1,14 +1,9 @@
 package pages;
 
-import org.joda.time.DateTime;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 
 import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Condition.visible;
@@ -17,10 +12,10 @@ import static com.codeborne.selenide.Selenide.$;
 public class Meeting_Member_Creation_Modal {
 
     private static String meeting_member_name_starts = Login_Page.config.getProperty("meeting_member_name_starts");
-    public static String meeting_member_name;
-    public static String meeting_member_record_type_text;
-    public static String meeting_list_item_text;
-    public static String invited_item_text;
+    static String meeting_member_name;
+    static String meeting_member_record_type_text;
+    static String meeting_list_item_text;
+    static String invited_item_text;
     @FindBy(xpath = "(.//*[(.)='Record Type'])[1]/following::span[2]")
     public WebElement m_m_record_type_field;
     @FindBy(xpath = "//input[@type = 'text' and @placeholder = 'Search Meetings...' and @title = 'Search Meetings']")
@@ -56,7 +51,7 @@ public class Meeting_Member_Creation_Modal {
 
     public Meeting_Member_Creation_Modal meeting_list_item_selection() throws Exception {
         meeting_list_item_text = $(meeting_list_item).getText();
-        $(meeting_list_item).waitUntil(visible,10000).click();
+        $(meeting_list_item).waitUntil(enabled,10000).click();
         return this;
     }
 

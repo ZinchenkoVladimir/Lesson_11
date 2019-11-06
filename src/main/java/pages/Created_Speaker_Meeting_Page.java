@@ -27,7 +27,7 @@ public class Created_Speaker_Meeting_Page {
     public WebElement record_type_text;
     @FindBy(xpath = "(.//*[(.)='Comments'])[1]/preceding::span[1]")
     public WebElement span_meeting_name_text;
-    @FindBy(xpath = "(.//*[normalize-space(.)='Add Member'])[1]/preceding::div[1]")
+    @FindBy(xpath = "(.//*[(text()) and normalize-space(.)='Meeting Services'])[2]/preceding::span[1]")
     public WebElement span2_meeting_name_text;
     @FindBy(xpath = "(.//*[(.)='End Date/Time'])[2]/preceding::span[3]")
     public WebElement span_start_date_text;
@@ -37,8 +37,8 @@ public class Created_Speaker_Meeting_Page {
     public WebElement status_text;
 
     private static SimpleDateFormat date_format = new SimpleDateFormat(Login_Page.config.getProperty("date_format_3"), Locale.US);
-    public static String start_date_formatted_2 = date_format.format(start_date);
-    public static String end_date_formatted_2 = date_format.format(end_date);
+    private static String start_date_formatted_2 = date_format.format(start_date);
+    private static String end_date_formatted_2 = date_format.format(end_date);
 
     public Created_Speaker_Meeting_Page(WebDriver driver) throws Exception {
         PageFactory.initElements(driver, this);

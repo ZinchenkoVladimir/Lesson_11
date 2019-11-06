@@ -31,53 +31,53 @@ public class Test_Speaker_Meetings extends Base {
         meeting_creation_review_modal = new Meeting_Creation_Review_Modal(driver);
         created_speaker_meeting_page = new Created_Speaker_Meeting_Page(driver);
     }
-//
-//    @Test(priority = 0)
-//    public void login_to_salesforce() throws Exception {
-//
-//        login_page
-//                .open_login_page()
-//                .username_field_fill()
-//                .password_field_fill()
-//                .login_bttn_click()
-//                .verify_home_page();
-//    }
-//
-//    @Test(priority = 1)
-//    public void redirect_to_meetings() throws Exception{
-//
-//        login_page
-//                .open_login_page()
-//                .username_field_fill()
-//                .password_field_fill()
-//                .login_bttn_click()
-//                .verify_home_page();
-//
-//        home_page
-//                .app_launcher_click()
-//                .meetings_link_click()
-//                .verify_meetings_page();
-//    }
-//
-//    @Test(priority = 2)
-//    public void open_meeting_modal() throws Exception{
-//
-//        login_page
-//                .open_login_page()
-//                .username_field_fill()
-//                .password_field_fill()
-//                .login_bttn_click()
-//                .verify_home_page();
-//
-//        home_page
-//                .app_launcher_click()
-//                .meetings_link_click()
-//                .verify_meetings_page();
-//
-//        meetings_page
-//                .new_bttn_click()
-//                .verify_meeting_modal();
-//    }
+
+    @Test(priority = 0)
+    public void login_to_salesforce() throws Exception {
+
+        login_page
+                .open_login_page()
+                .username_field_fill()
+                .password_field_fill()
+                .login_bttn_click()
+                .verify_home_page();
+    }
+
+    @Test(priority = 1)
+    public void redirect_to_meetings() throws Exception{
+
+        login_page
+                .open_login_page()
+                .username_field_fill()
+                .password_field_fill()
+                .login_bttn_click()
+                .verify_home_page();
+
+        home_page
+                .app_launcher_click()
+                .meetings_link_click()
+                .verify_meetings_page();
+    }
+
+    @Test(priority = 2)
+    public void open_meeting_modal() throws Exception{
+
+        login_page
+                .open_login_page()
+                .username_field_fill()
+                .password_field_fill()
+                .login_bttn_click()
+                .verify_home_page();
+
+        home_page
+                .app_launcher_click()
+                .meetings_link_click()
+                .verify_meetings_page();
+
+        meetings_page
+                .new_bttn_click()
+                .verify_meeting_modal();
+    }
 
     @Test(priority = 3)
     public void meeting_creation() throws Exception{

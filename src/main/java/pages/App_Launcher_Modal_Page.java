@@ -20,5 +20,4 @@ public class App_Launcher_Modal_Page {
     public void meeting_members_link_click() throws Exception {
         $(meeting_members_link).waitUntil(visible,10000).click();
     }
-
 }

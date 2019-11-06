@@ -24,13 +24,13 @@ public class Meeting_Creation_Details_Modal {
     @FindBy(xpath = "//input[@name = 'OCE__EndDateTime__c' and @class = 'slds-input']")
     public WebElement end_date_field;
 
-    static Date current_date = new Date();
+    private static Date current_date = new Date();
     static DateTime dt_org = new DateTime(current_date);
-    public static Date start_date = dt_org.plusDays(Integer.parseInt(Login_Page.config.getProperty("start_date"))).toDate();
-    public static Date end_date = dt_org.plusDays(Integer.parseInt(Login_Page.config.getProperty("end_date"))).toDate();
-    SimpleDateFormat date_format = new SimpleDateFormat(Login_Page.config.getProperty("date_format_1"), Locale.ENGLISH);
-    String start_date_formatted = date_format.format(start_date);
-    String end_date_formatted = date_format.format(end_date);
+    static Date start_date = dt_org.plusDays(Integer.parseInt(Login_Page.config.getProperty("start_date"))).toDate();
+    static Date end_date = dt_org.plusDays(Integer.parseInt(Login_Page.config.getProperty("end_date"))).toDate();
+    private SimpleDateFormat date_format = new SimpleDateFormat(Login_Page.config.getProperty("date_format_1"), Locale.ENGLISH);
+    private String start_date_formatted = date_format.format(start_date);
+    private String end_date_formatted = date_format.format(end_date);
 
     static int a = (int) (Math.random() * 1000000000);
 

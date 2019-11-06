@@ -1,13 +1,9 @@
 package pages;
 
-import com.codeborne.selenide.commands.Execute;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import utils.Config;
-
-import java.util.Properties;
 
 import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Condition.visible;
@@ -37,5 +33,4 @@ public class Home_Page {
     public void verify_meetings_page() throws Exception {
         $(Meetings_Page.meetings_text).waitUntil(enabled,10000).is(visible);
     }
-
 }

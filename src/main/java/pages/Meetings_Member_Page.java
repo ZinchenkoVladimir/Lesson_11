@@ -6,7 +6,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import static com.codeborne.selenide.Condition.enabled;
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
 public class Meetings_Member_Page {
@@ -21,5 +20,4 @@ public class Meetings_Member_Page {
     public void verify_meeting_members_page() throws Exception {
         $(meeting_members_text).waitUntil(enabled,10000).isDisplayed();
     }
-
 }
