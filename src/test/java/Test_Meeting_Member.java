@@ -13,6 +13,7 @@ public class Test_Meeting_Member extends Base {
     private Meetings_Page meetings_page;
     private Meeting_Member_Select_record_type_Modal_Page meeting_member_select_record_type_modal_page;
     private Meeting_Creation_Select_Record_Type_Modal meeting_creation_select_record_type_modal;
+    private Meeting_Member_Creation_Modal meeting_member_creation_modal;
 
     public Test_Meeting_Member(){
     }
@@ -27,6 +28,7 @@ public class Test_Meeting_Member extends Base {
         meetings_page = new Meetings_Page(driver);
         meeting_member_select_record_type_modal_page = new Meeting_Member_Select_record_type_Modal_Page(driver);
         meeting_creation_select_record_type_modal = new Meeting_Creation_Select_Record_Type_Modal(driver);
+        meeting_member_creation_modal = new Meeting_Member_Creation_Modal(driver);
     }
 
 //    @Test(priority = 0)
@@ -113,6 +115,15 @@ public class Test_Meeting_Member extends Base {
 
         meeting_creation_select_record_type_modal
                 .next_bttn_click();
+
+        meeting_member_creation_modal
+                .m_m_full_name_field_fill()
+                .meeting_selection_field_set_value()
+                .meeting_list_item_selection()
+                .invitation_status_field_click()
+                .invited_item_selection()
+                .save_bttn_click();
+
     }
 
 }

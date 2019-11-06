@@ -15,7 +15,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class Meeting_Creation_Details_Modal {
 
-    private static String meeting_name_starts = Login_Page.config.getProperty("name_starts");
+    public static String meeting_name_starts = Login_Page.config.getProperty("meeting_name_starts");
     public static String meeting_name;
     @FindBy(xpath = "//input[@name = 'Name']")
     public WebElement meeting_name_field;
