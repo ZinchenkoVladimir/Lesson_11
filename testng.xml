@@ -6,13 +6,17 @@
 <!--            <package name="default_package"/>-->
 <!--        </packages>-->
         <classes>
-            <class name="Test_Speaker_Meetings"/>
+            <class name="Test_Speaker_Meetings">
+                <methods>
+                    <include name="meeting_creation"/>
+                </methods>
+            </class>
             <class name="Test_Meeting_Member">
                 <methods>
 <!--                    <include name="login_to_salesforce"/>-->
 <!--                    <include name="redirect_to_meetings_member"/>-->
-                    <exclude name="open_meetings_member_modal"/>
-                    <exclude name="speaker_meetings_member_creation"/>
+<!--                    <exclude name="open_meetings_member_modal"/>-->
+                    <include name="speaker_meetings_member_creation"/>
                 </methods>
             </class>
         </classes>

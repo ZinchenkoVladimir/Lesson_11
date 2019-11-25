@@ -95,7 +95,7 @@ public class Test_Speaker_Meetings extends Base {
         meeting_creation_review_modal
                 .verify_meeting_type()
                 .verify_meeting_name();
-//        asserts.assertTrue(meeting_creation_review_modal.verify_start_date(), "start_date_1");
+        asserts.assertTrue(meeting_creation_review_modal.verify_start_date(), "start_date_1");
         asserts.assertTrue(meeting_creation_review_modal.verify_end_date(), "end_date_1");
         asserts.assertAll();
         meeting_creation_review_modal
