@@ -17,6 +17,8 @@ public class Base {
 
     private WebDriver driver;
 
+    protected HomePage homePage;
+    protected CreateAnAccountPage createAnAccountPage;
     protected Login_Page login_page;
     protected Home_Page home_page;
     protected App_Launcher_Modal_Page app_launcher_modal_page;
@@ -48,11 +50,13 @@ public class Base {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         WebDriverRunner.setWebDriver(driver);
         WebDriverRunner.supportsJavascript();
         WebDriverRunner.supportsModalDialogs();
 
+        homePage = new HomePage(driver);
+        createAnAccountPage = new CreateAnAccountPage(driver);
         login_page = new Login_Page(driver);
         home_page = new Home_Page(driver);
         app_launcher_modal_page = new App_Launcher_Modal_Page(driver);
